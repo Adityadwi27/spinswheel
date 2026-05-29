@@ -25,7 +25,24 @@ function drawWheel() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (total === 0) return;
+  // Wheel kosong default
+  if (total === 0) {
+    ctx.beginPath();
+    ctx.arc(250, 250, 240, 0, Math.PI * 2);
+    ctx.fillStyle = '#1e293b';
+    ctx.fill();
+
+    ctx.lineWidth = 8;
+    ctx.strokeStyle = '#475569';
+    ctx.stroke();
+
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 28px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Tambahkan Peserta', 250, 250);
+
+    return;
+  }
 
   const angle = (2 * Math.PI) / total;
 

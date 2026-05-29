@@ -7,9 +7,7 @@ const winSound = document.getElementById('winSound');
 let participants = [];
 let winners = [];
 let rotation = 0;
-let document.querySelector('.wheel-wrapper').classList.remove('spinning');
-
-    spinning = false;
+let spinning = false;
 
 const colors = [
   '#ef4444',
@@ -157,6 +155,9 @@ function startSpin() {
 
     drawWheel();
     updateParticipantList();
+
+    // Hapus class spinning setelah animasi selesai
+    document.querySelector('.wheel-wrapper').classList.remove('spinning');
 
     spinning = false;
 

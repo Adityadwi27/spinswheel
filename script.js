@@ -7,7 +7,9 @@ const winSound = document.getElementById('winSound');
 let participants = [];
 let winners = [];
 let rotation = 0;
-let spinning = false;
+let document.querySelector('.wheel-wrapper').classList.remove('spinning');
+
+    spinning = false;
 
 const colors = [
   '#ef4444',
@@ -108,6 +110,8 @@ function startSpin() {
 
   spinning = true;
 
+  document.querySelector('.wheel-wrapper').classList.add('spinning');
+
   spinSound.play();
 
   const randomIndex = Math.floor(Math.random() * participants.length);
@@ -126,7 +130,15 @@ function startSpin() {
 
     winSound.play();
 
-    document.getElementById('winnerName').innerText = winner;
+    const winnerElement = document.getElementById('winnerName');
+
+    winnerElement.classList.remove('winner-animation');
+
+    void winnerElement.offsetWidth;
+
+    winnerElement.innerText = `🎉 ${winner} 🎉`;
+
+    winnerElement.classList.add('winner-animation');
 
     winners.unshift(winner);
 
